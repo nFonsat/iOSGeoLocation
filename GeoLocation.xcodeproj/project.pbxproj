@@ -8,11 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		B86D4E381AD6664D006EB242 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D4E371AD6664D006EB242 /* AppDelegate.swift */; };
-		B86D4E3A1AD6664D006EB242 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D4E391AD6664D006EB242 /* ViewController.swift */; };
 		B86D4E3D1AD6664D006EB242 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B86D4E3B1AD6664D006EB242 /* Main.storyboard */; };
 		B86D4E3F1AD6664D006EB242 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B86D4E3E1AD6664D006EB242 /* Images.xcassets */; };
 		B86D4E421AD6664D006EB242 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B86D4E401AD6664D006EB242 /* LaunchScreen.xib */; };
 		B86D4E4E1AD6664D006EB242 /* GeoLocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D4E4D1AD6664D006EB242 /* GeoLocationTests.swift */; };
+		B86D4E591AD666A1006EB242 /* GeoLocation.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B86D4E571AD666A1006EB242 /* GeoLocation.xcdatamodeld */; };
+		B86D4E5B1AD66767006EB242 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D4E5A1AD66767006EB242 /* Place.swift */; };
+		B86D4E5F1AD6686A006EB242 /* LocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D4E5E1AD6686A006EB242 /* LocationTableViewController.swift */; };
+		B86D4E611AD66A03006EB242 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D4E601AD66A03006EB242 /* AddLocationViewController.swift */; };
+		B86D4E631AD66C8C006EB242 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D4E621AD66C8C006EB242 /* CoreDataManager.swift */; };
+		B86D4E651AD66CEC006EB242 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D4E641AD66CEC006EB242 /* LocationManager.swift */; };
+		B86D4E671AD66DDB006EB242 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D4E661AD66DDB006EB242 /* Location.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +35,19 @@
 		B86D4E321AD6664D006EB242 /* GeoLocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoLocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86D4E361AD6664D006EB242 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B86D4E371AD6664D006EB242 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B86D4E391AD6664D006EB242 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B86D4E3C1AD6664D006EB242 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B86D4E3E1AD6664D006EB242 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B86D4E411AD6664D006EB242 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B86D4E471AD6664D006EB242 /* GeoLocationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeoLocationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86D4E4C1AD6664D006EB242 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B86D4E4D1AD6664D006EB242 /* GeoLocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoLocationTests.swift; sourceTree = "<group>"; };
+		B86D4E581AD666A1006EB242 /* GeoLocation.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GeoLocation.xcdatamodel; sourceTree = "<group>"; };
+		B86D4E5A1AD66767006EB242 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		B86D4E5E1AD6686A006EB242 /* LocationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewController.swift; sourceTree = "<group>"; };
+		B86D4E601AD66A03006EB242 /* AddLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		B86D4E621AD66C8C006EB242 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		B86D4E641AD66CEC006EB242 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		B86D4E661AD66DDB006EB242 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +89,18 @@
 		B86D4E341AD6664D006EB242 /* GeoLocation */ = {
 			isa = PBXGroup;
 			children = (
+				B86D4E661AD66DDB006EB242 /* Location.swift */,
 				B86D4E371AD6664D006EB242 /* AppDelegate.swift */,
-				B86D4E391AD6664D006EB242 /* ViewController.swift */,
+				B86D4E5E1AD6686A006EB242 /* LocationTableViewController.swift */,
+				B86D4E601AD66A03006EB242 /* AddLocationViewController.swift */,
 				B86D4E3B1AD6664D006EB242 /* Main.storyboard */,
 				B86D4E3E1AD6664D006EB242 /* Images.xcassets */,
 				B86D4E401AD6664D006EB242 /* LaunchScreen.xib */,
 				B86D4E351AD6664D006EB242 /* Supporting Files */,
+				B86D4E571AD666A1006EB242 /* GeoLocation.xcdatamodeld */,
+				B86D4E5A1AD66767006EB242 /* Place.swift */,
+				B86D4E621AD66C8C006EB242 /* CoreDataManager.swift */,
+				B86D4E641AD66CEC006EB242 /* LocationManager.swift */,
 			);
 			path = GeoLocation;
 			sourceTree = "<group>";
@@ -212,8 +230,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B86D4E3A1AD6664D006EB242 /* ViewController.swift in Sources */,
+				B86D4E591AD666A1006EB242 /* GeoLocation.xcdatamodeld in Sources */,
+				B86D4E5F1AD6686A006EB242 /* LocationTableViewController.swift in Sources */,
+				B86D4E671AD66DDB006EB242 /* Location.swift in Sources */,
+				B86D4E611AD66A03006EB242 /* AddLocationViewController.swift in Sources */,
+				B86D4E651AD66CEC006EB242 /* LocationManager.swift in Sources */,
 				B86D4E381AD6664D006EB242 /* AppDelegate.swift in Sources */,
+				B86D4E631AD66C8C006EB242 /* CoreDataManager.swift in Sources */,
+				B86D4E5B1AD66767006EB242 /* Place.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +439,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B86D4E571AD666A1006EB242 /* GeoLocation.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B86D4E581AD666A1006EB242 /* GeoLocation.xcdatamodel */,
+			);
+			currentVersion = B86D4E581AD666A1006EB242 /* GeoLocation.xcdatamodel */;
+			path = GeoLocation.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B86D4E2A1AD6664D006EB242 /* Project object */;
 }
