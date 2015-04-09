@@ -52,7 +52,6 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocation
                 { (action: UIAlertAction!) -> Void in
                     let textField = alert.textFields![0] as UITextField
                     
-                    
                     if let location = LocationManager.SharedManager.createLocationWithName(textField.text) {
                         location.longitude = self.currentAnnotation.coordinate.longitude
                         location.latitude = self.currentAnnotation.coordinate.latitude
@@ -62,13 +61,27 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocation
                     }
             }
             
-            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (_) -> Void in }
+            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
             
             alert.addTextFieldWithConfigurationHandler(nil)
             alert.addAction(saveAction)
             alert.addAction(cancelAction)
             
-            presentViewController(alert, animated: true, completion: nil)
+            var geocoder = CLGeocoder()
+            geocoder.reverseGeocodeLocation(
+                CLLocation(latitude: self.currentAnnotation.coordinate.latitude, longitude: self.currentAnnotation.coordinate.longitude),
+                completionHandler: { (placemarks: [AnyObject]!, error: NSError!) -> Void in
+                    let placemark = placemarks[0] as CLPlacemark
+                    let addressDictionary = placemark.addressDictionary as NSDictionary
+                    
+                    let valueOptional = addressDictionary.valueForKey("Name") as String?
+                    
+                    if let value = valueOptional {
+                        (alert.textFields![0] as UITextField).text = value
+                    }
+                    
+                    self.presentViewController(alert, animated: true, completion: nil)
+            })
         }
     }
     

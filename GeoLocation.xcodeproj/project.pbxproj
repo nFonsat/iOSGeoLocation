@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		44284265764CBF5D129572DC /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617FCB8548EC5ACFA41CB85B /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B86D4E381AD6664D006EB242 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D4E371AD6664D006EB242 /* AppDelegate.swift */; };
 		B86D4E3D1AD6664D006EB242 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B86D4E3B1AD6664D006EB242 /* Main.storyboard */; };
 		B86D4E3F1AD6664D006EB242 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B86D4E3E1AD6664D006EB242 /* Images.xcassets */; };
@@ -19,6 +20,9 @@
 		B86D4E631AD66C8C006EB242 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D4E621AD66C8C006EB242 /* CoreDataManager.swift */; };
 		B86D4E651AD66CEC006EB242 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D4E641AD66CEC006EB242 /* LocationManager.swift */; };
 		B86D4E671AD66DDB006EB242 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D4E661AD66DDB006EB242 /* Location.swift */; };
+		B895D34A1AD6972500CD09F9 /* GooglePlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B895D3491AD6972500CD09F9 /* GooglePlaceService.swift */; };
+		B895D34C1AD69D4100CD09F9 /* PlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B895D34B1AD69D4100CD09F9 /* PlaceTableViewController.swift */; };
+		B895D34E1AD6AB3600CD09F9 /* PlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B895D34D1AD6AB3600CD09F9 /* PlaceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		30F3A7E3663EAE3FD494B80B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		617FCB8548EC5ACFA41CB85B /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A47804A40CB3C2EAAC06D04B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B86D4E321AD6664D006EB242 /* GeoLocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoLocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86D4E361AD6664D006EB242 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B86D4E371AD6664D006EB242 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +55,9 @@
 		B86D4E621AD66C8C006EB242 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		B86D4E641AD66CEC006EB242 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		B86D4E661AD66DDB006EB242 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		B895D3491AD6972500CD09F9 /* GooglePlaceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlaceService.swift; sourceTree = "<group>"; };
+		B895D34B1AD69D4100CD09F9 /* PlaceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTableViewController.swift; sourceTree = "<group>"; };
+		B895D34D1AD6AB3600CD09F9 /* PlaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44284265764CBF5D129572DC /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +79,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		46CE5758850E7AA2E10CAF37 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A47804A40CB3C2EAAC06D04B /* Pods.debug.xcconfig */,
+				30F3A7E3663EAE3FD494B80B /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4E8C92D76FA9940337757AEE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				617FCB8548EC5ACFA41CB85B /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B86D4E291AD6664D006EB242 = {
 			isa = PBXGroup;
 			children = (
 				B86D4E341AD6664D006EB242 /* GeoLocation */,
 				B86D4E4A1AD6664D006EB242 /* GeoLocationTests */,
 				B86D4E331AD6664D006EB242 /* Products */,
+				46CE5758850E7AA2E10CAF37 /* Pods */,
+				4E8C92D76FA9940337757AEE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,11 +126,14 @@
 				B86D4E3B1AD6664D006EB242 /* Main.storyboard */,
 				B86D4E3E1AD6664D006EB242 /* Images.xcassets */,
 				B86D4E401AD6664D006EB242 /* LaunchScreen.xib */,
-				B86D4E351AD6664D006EB242 /* Supporting Files */,
 				B86D4E571AD666A1006EB242 /* GeoLocation.xcdatamodeld */,
 				B86D4E5A1AD66767006EB242 /* Place.swift */,
 				B86D4E621AD66C8C006EB242 /* CoreDataManager.swift */,
 				B86D4E641AD66CEC006EB242 /* LocationManager.swift */,
+				B895D3491AD6972500CD09F9 /* GooglePlaceService.swift */,
+				B895D34B1AD69D4100CD09F9 /* PlaceTableViewController.swift */,
+				B895D34D1AD6AB3600CD09F9 /* PlaceManager.swift */,
+				B86D4E351AD6664D006EB242 /* Supporting Files */,
 			);
 			path = GeoLocation;
 			sourceTree = "<group>";
@@ -137,9 +170,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B86D4E511AD6664D006EB242 /* Build configuration list for PBXNativeTarget "GeoLocation" */;
 			buildPhases = (
+				7C7B99CFF58225997E6EFCED /* Check Pods Manifest.lock */,
 				B86D4E2E1AD6664D006EB242 /* Sources */,
 				B86D4E2F1AD6664D006EB242 /* Frameworks */,
 				B86D4E301AD6664D006EB242 /* Resources */,
+				09219A81C5CBC1AB23733D97 /* Embed Pods Frameworks */,
+				7EE3C396DB183F69EFEBAEBC /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -225,17 +261,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		09219A81C5CBC1AB23733D97 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7C7B99CFF58225997E6EFCED /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7EE3C396DB183F69EFEBAEBC /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B86D4E2E1AD6664D006EB242 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B86D4E591AD666A1006EB242 /* GeoLocation.xcdatamodeld in Sources */,
+				B895D34A1AD6972500CD09F9 /* GooglePlaceService.swift in Sources */,
 				B86D4E5F1AD6686A006EB242 /* LocationTableViewController.swift in Sources */,
 				B86D4E671AD66DDB006EB242 /* Location.swift in Sources */,
 				B86D4E611AD66A03006EB242 /* AddLocationViewController.swift in Sources */,
 				B86D4E651AD66CEC006EB242 /* LocationManager.swift in Sources */,
 				B86D4E381AD6664D006EB242 /* AppDelegate.swift in Sources */,
+				B895D34C1AD69D4100CD09F9 /* PlaceTableViewController.swift in Sources */,
+				B895D34E1AD6AB3600CD09F9 /* PlaceManager.swift in Sources */,
 				B86D4E631AD66C8C006EB242 /* CoreDataManager.swift in Sources */,
 				B86D4E5B1AD66767006EB242 /* Place.swift in Sources */,
 			);
@@ -358,6 +445,7 @@
 		};
 		B86D4E521AD6664D006EB242 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A47804A40CB3C2EAAC06D04B /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GeoLocation/Info.plist;
@@ -368,6 +456,7 @@
 		};
 		B86D4E531AD6664D006EB242 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 30F3A7E3663EAE3FD494B80B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = GeoLocation/Info.plist;
@@ -429,6 +518,7 @@
 				B86D4E531AD6664D006EB242 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B86D4E541AD6664D006EB242 /* Build configuration list for PBXNativeTarget "GeoLocationTests" */ = {
 			isa = XCConfigurationList;
@@ -437,6 +527,7 @@
 				B86D4E561AD6664D006EB242 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

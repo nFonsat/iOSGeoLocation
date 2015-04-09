@@ -11,7 +11,10 @@ import CoreData
 
 class Place: NSManagedObject {
 
+    @NSManaged var cat: String
     @NSManaged var name: String
+    @NSManaged var detail: String
+    @NSManaged var placeId: String
     @NSManaged var locations: NSSet
 
 }

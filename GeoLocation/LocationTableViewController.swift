@@ -25,7 +25,7 @@ class LocationTableViewController: UITableViewController {
         locations = LocationManager.SharedManager.getLocations()
     }
 
-    // MARK: - Table view data source
+    //MARK: Table view data source
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return locations.count
@@ -58,5 +58,16 @@ class LocationTableViewController: UITableViewController {
         
         tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
     }
+    
+    //MARK: Navigation
 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "tablePlace" {
+            let placesList = segue.destinationViewController as PlaceTableViewController
+            let indexPath  = tableView.indexPathForSelectedRow()!
+            let locationSelected = self.locations[indexPath.row]
+            
+            placesList.location = locationSelected
+        }
+    }
 }

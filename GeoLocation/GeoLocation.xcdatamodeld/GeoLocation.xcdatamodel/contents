@@ -8,11 +8,14 @@
         <relationship name="places" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Location" inverseName="places" inverseEntity="Location" syncable="YES"/>
     </entity>
     <entity name="Place" representedClassName="GeoLocation.Place" syncable="YES">
+        <attribute name="cat" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="detail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="placeId" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="locations" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Location" syncable="YES"/>
     </entity>
     <elements>
         <element name="Location" positionX="-63" positionY="-18" width="128" height="120"/>
-        <element name="Place" positionX="-54" positionY="18" width="128" height="75"/>
+        <element name="Place" positionX="-54" positionY="18" width="128" height="120"/>
     </elements>
 </model>

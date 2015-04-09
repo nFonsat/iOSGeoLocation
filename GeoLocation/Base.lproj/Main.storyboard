@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Locations-->
         <scene sceneID="W6i-iQ-W9h">
             <objects>
                 <tableViewController id="Idj-so-8Ms" customClass="LocationTableViewController" customModule="GeoLocation" customModuleProvider="target" sceneMemberID="viewController">
@@ -13,11 +13,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationCell" id="byY-3d-SVd">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="LocationCell" textLabel="gAV-4F-ePK" style="IBUITableViewCellStyleDefault" id="byY-3d-SVd">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="byY-3d-SVd" id="9XH-an-BcJ">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gAV-4F-ePK">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="clJ-Zv-htw" kind="show" identifier="tablePlace" id="YCd-bM-bLw"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -25,7 +36,7 @@
                             <outlet property="delegate" destination="Idj-so-8Ms" id="vSQ-FV-C29"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="gXr-KB-xvE">
+                    <navigationItem key="navigationItem" title="Locations" id="gXr-KB-xvE">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Jps-7s-8nV">
                             <connections>
                                 <segue destination="ayc-yF-e5A" kind="show" id="Exi-e0-ZuN"/>
@@ -131,6 +142,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocE-Xj-ZEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="295" y="499"/>
+        </scene>
+        <!--Places to see-->
+        <scene sceneID="b6y-gh-bSw">
+            <objects>
+                <tableViewController id="clJ-Zv-htw" customClass="PlaceTableViewController" customModule="GeoLocation" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="nMu-PQ-cET">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="placeCell" id="RhO-hH-By5">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RhO-hH-By5" id="bzO-0Q-qdO">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="clJ-Zv-htw" id="zz0-SC-dVc"/>
+                            <outlet property="delegate" destination="clJ-Zv-htw" id="Mzv-gP-VI4"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Places to see" id="yUX-mv-cnR"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EVs-vU-hzp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="972" y="1216"/>
         </scene>
     </scenes>
 </document>

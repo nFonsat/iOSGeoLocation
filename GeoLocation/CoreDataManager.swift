@@ -18,15 +18,10 @@ class CoreDataManager {
     
     class var SharedManager: CoreDataManager {
         struct Singleton {
-            static var instance: CoreDataManager?
-            static var token: dispatch_once_t = 0
+            static var instance = CoreDataManager()
         }
         
-        dispatch_once(&Singleton.token) {
-            Singleton.instance = CoreDataManager()
-        }
-        
-        return Singleton.instance!
+        return Singleton.instance
     }
     
     func applicationDocumentDirectory() -> NSURL {
