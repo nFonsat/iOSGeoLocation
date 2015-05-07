@@ -17,6 +17,7 @@ class GooglePlaceService {
     private let parameterKey = "key"
     private let parameterLoc = "location"
     private let parameterRadius = "radius"
+    private let parameterType = "types"
     
     class var SharedManager: GooglePlaceService {
         struct Singleton {
@@ -34,6 +35,7 @@ class GooglePlaceService {
         parameters[parameterKey] = key
         parameters[parameterLoc] = "\(position.latitude),\(position.longitude)"
         parameters[parameterRadius] = NSString(format: "%.2f", radius)
+        parameters[parameterType] = "bar|restaurant|museum|park"
         
         
         var request = Alamofire.request(.GET, self.baseAPI, parameters: parameters)

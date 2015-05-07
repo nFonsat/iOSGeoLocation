@@ -13,8 +13,9 @@ class Place: NSManagedObject {
 
     @NSManaged var cat: String
     @NSManaged var name: String
-    @NSManaged var detail: String
     @NSManaged var placeId: String
+    @NSManaged var longitude: NSNumber
+    @NSManaged var latitude: NSNumber
     @NSManaged var locations: NSSet
 
 }

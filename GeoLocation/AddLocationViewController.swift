@@ -9,6 +9,8 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Alamofire
+import SwiftyJSON
 
 class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     //MARK: Variable
@@ -58,6 +60,43 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocation
                         location.radius = self.currentOverlay.radius
                         
                         location.managedObjectContext?.save(nil)
+                        println("Add location \(location.name)")
+                        
+                        var place = GooglePlaceService.SharedManager
+                        var request = place.searchInfoLocation(
+                            CLLocation(latitude: Double(location.latitude), longitude: Double(location.longitude)),
+                            radius:  Double(location.radius))
+                        
+                        request.responseJSON { (request, response, json, error) in
+                            let jsonObject = JSON(json!)
+                            let results = jsonObject["results"]
+                            
+                            for (key: String, jsonValue: JSON) in results {
+                                if let namePlace = jsonValue["name"].string {
+                                    let typePlace = jsonValue["types"][0].string
+                                    println("Place : \(namePlace) Category : \(typePlace)")
+                                    
+                                    if let place = PlaceManager.SharedManager.createPlaceWithName(namePlace) {
+                                        let idPlace = jsonValue["place_id"].string
+                                        
+                                        let latitude = jsonValue["geometry"]["location"]["lat"].double
+                                        let longitude = jsonValue["geometry"]["location"]["lng"].double
+                                        
+                                        place.placeId = idPlace!
+                                        place.cat = typePlace!
+                                        place.locations.setByAddingObject(location)
+                                        place.longitude = longitude!
+                                        place.latitude = latitude!
+                                        
+                                        place.managedObjectContext?.save(nil)
+                                        location.managedObjectContext?.save(nil)
+                                        
+                                        println("Add place \(place.name)")
+                                    }
+                                }
+                            }
+                            self.navigationController?.popViewControllerAnimated(true)
+                        }
                     }
             }
             

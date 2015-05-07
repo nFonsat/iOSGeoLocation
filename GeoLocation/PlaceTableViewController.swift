@@ -8,27 +8,12 @@
 
 import UIKit
 import CoreLocation
-import Alamofire
-import SwiftyJSON
 
 class PlaceTableViewController: UITableViewController {
     var location:Location!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        var place = GooglePlaceService.SharedManager
-        var request = place.searchInfoLocation(
-            CLLocation(latitude: Double(location.latitude), longitude: Double(location.longitude)),
-            radius:  Double(location.radius))
-        
-        request.responseJSON { (request, response, json, error) in
-            println(json)
-            
-            let json = JSON(json!)
-    
-        }
-        
     }
 
     // MARK: - Table view data source

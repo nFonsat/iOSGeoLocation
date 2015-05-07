@@ -96,6 +96,36 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B841C2031AFB86F400F9F9E0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B86D4E5A1AD66767006EB242 /* Place.swift */,
+				B86D4E661AD66DDB006EB242 /* Location.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B841C2041AFB871A00F9F9E0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B86D4E5E1AD6686A006EB242 /* LocationTableViewController.swift */,
+				B86D4E601AD66A03006EB242 /* AddLocationViewController.swift */,
+				B895D34B1AD69D4100CD09F9 /* PlaceTableViewController.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		B841C2051AFB872E00F9F9E0 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				B895D3491AD6972500CD09F9 /* GooglePlaceService.swift */,
+				B86D4E621AD66C8C006EB242 /* CoreDataManager.swift */,
+				B86D4E641AD66CEC006EB242 /* LocationManager.swift */,
+				B895D34D1AD6AB3600CD09F9 /* PlaceManager.swift */,
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
 		B86D4E291AD6664D006EB242 = {
 			isa = PBXGroup;
 			children = (
@@ -119,20 +149,14 @@
 		B86D4E341AD6664D006EB242 /* GeoLocation */ = {
 			isa = PBXGroup;
 			children = (
-				B86D4E661AD66DDB006EB242 /* Location.swift */,
+				B841C2051AFB872E00F9F9E0 /* Manager */,
+				B841C2041AFB871A00F9F9E0 /* View */,
+				B841C2031AFB86F400F9F9E0 /* Model */,
 				B86D4E371AD6664D006EB242 /* AppDelegate.swift */,
-				B86D4E5E1AD6686A006EB242 /* LocationTableViewController.swift */,
-				B86D4E601AD66A03006EB242 /* AddLocationViewController.swift */,
 				B86D4E3B1AD6664D006EB242 /* Main.storyboard */,
 				B86D4E3E1AD6664D006EB242 /* Images.xcassets */,
 				B86D4E401AD6664D006EB242 /* LaunchScreen.xib */,
 				B86D4E571AD666A1006EB242 /* GeoLocation.xcdatamodeld */,
-				B86D4E5A1AD66767006EB242 /* Place.swift */,
-				B86D4E621AD66C8C006EB242 /* CoreDataManager.swift */,
-				B86D4E641AD66CEC006EB242 /* LocationManager.swift */,
-				B895D3491AD6972500CD09F9 /* GooglePlaceService.swift */,
-				B895D34B1AD69D4100CD09F9 /* PlaceTableViewController.swift */,
-				B895D34D1AD6AB3600CD09F9 /* PlaceManager.swift */,
 				B86D4E351AD6664D006EB242 /* Supporting Files */,
 			);
 			path = GeoLocation;
