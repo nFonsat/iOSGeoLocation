@@ -12,6 +12,8 @@ import CoreLocation
 class PlaceTableViewController: UITableViewController {
     var location:Location!
     
+    let categoriesPlaceText = ["Restaurants","Bars","Museums","Parks"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -19,6 +21,17 @@ class PlaceTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return categoriesPlaceText.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("placeCell") as UITableViewCell
+        
+        cell.textLabel.text = categoriesPlaceText[indexPath.row]
+        
+        cell.imageView.image = UIImage(named: "restaurant")!
+        
+        
+        return cell
     }
 }
