@@ -12,10 +12,10 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 
-class AddLocationViewController: UIViewController, MKMapViewDelegate {
+class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     //MARK: Variable
     var locationManager:CLLocationManager!
-    var locationFound = false
+    var locationFound:Bool!
     
     var currentAnnotation = MKPointAnnotation()
     var currentOverlay = MKCircle()
@@ -33,6 +33,7 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate {
         self.mapView.delegate = self
         self.mapView.showsUserLocation = true
         
+        initLocationManager()
         checkStatePing()
     }
     
@@ -188,7 +189,6 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate {
     
     func mapView(mapView: MKMapView!, didUpdateUserLocation userLocation: MKUserLocation!) {
         if !locationFound {
-            println("Resize")
             locationFound = true
             var location = userLocation.location.coordinate
             
@@ -217,6 +217,47 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate {
             mapView.addOverlay(currentOverlay)
             
             labelRayon.text = "Search radius : \(Int(value))m"
+        }
+    }
+    
+    //MARK: CLLocationManager
+    
+    func initLocationManager() {
+        locationFound = false;
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+    }
+    
+    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        var locationStatus = ""
+        
+        switch status {
+        case CLAuthorizationStatus.Restricted:
+            locationStatus = "Restricted Access to location"
+        case CLAuthorizationStatus.Denied:
+            locationStatus = "User denied access to location"
+        case CLAuthorizationStatus.NotDetermined:
+            locationStatus = "Status not determined"
+        default:
+            locationStatus = "Allowed to location Access"
+        }
+        
+        println("\(locationStatus)")
+    }
+    
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        if !locationFound {
+            locationFound = true
+            var locationArray = locations as NSArray
+            var locationObj = locationArray.lastObject as CLLocation
+            var location = locationObj.coordinate
+            
+            let span = MKCoordinateSpanMake(0.1, 0.1)
+            let region = MKCoordinateRegion(center: location, span: span)
+            mapView.setRegion(region, animated: true)
         }
     }
 }

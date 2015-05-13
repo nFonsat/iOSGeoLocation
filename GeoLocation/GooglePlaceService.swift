@@ -12,8 +12,11 @@ import CoreLocation
 
 class GooglePlaceService {
     //MARK: Variable
-    private let baseAPI = "https://maps.googleapis.com/maps/api/place"
-    private let key = "AIzaSyDrTvMEsK4qBvfwFbUAXuhfG5cH522Z0x4"
+    private let baseAPI     = "https://maps.googleapis.com/maps/api/place"
+    private let keyProf     = "AIzaSyDrTvMEsK4qBvfwFbUAXuhfG5cH522Z0x4"
+    
+    //Marche pas
+    private let keyNicolas  = "AIzaSyAJdCE2nI318hX8Lcd9teh5SjMZoWoNm0E"
     
     
     private let searchMode  = "/nearbysearch"
@@ -51,7 +54,7 @@ class GooglePlaceService {
         let position = location.coordinate
         let url = self.baseAPI + self.searchMode + self.jsonMode
         
-        parameters[parameterKey] = key
+        parameters[parameterKey] = keyProf
         parameters[parameterLoc] = "\(position.latitude),\(position.longitude)"
         parameters[parameterRadius] = NSString(format: "%.2f", radius)
         parameters[parameterType] = "bar|restaurant|museum|park"
@@ -67,7 +70,7 @@ class GooglePlaceService {
         
         let url = self.baseAPI + self.detailsMode + self.jsonMode
         
-        parameters[parameterKey] = key
+        parameters[parameterKey] = keyProf
         parameters[parameterPlaceID] = placeID
         
         
@@ -84,7 +87,7 @@ class GooglePlaceService {
         
         parameters[parameterPhotoRef] = photoRef
         parameters[parameterMaxWidth] = String(maxWidth)
-        parameters[parameterKey] = key
+        parameters[parameterKey] = keyProf
         
         
         var request = Alamofire.request(.GET, url, parameters: parameters)
