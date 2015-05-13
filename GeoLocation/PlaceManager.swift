@@ -83,13 +83,10 @@ class PlaceManager {
         return nil
     }
     
-    func savePlaceWithLocation(place: Place, location: Location) -> Location? {
-        location.places.setByAddingObject(place)
-        location.managedObjectContext?.save(nil)
-        
-        place.locations.setByAddingObject(location)
+    func addNoteForPlace(place:Place, note:Float) -> Place {
+        place.note = note
         place.managedObjectContext?.save(nil)
         
-        return location
+        return place
     }
 }

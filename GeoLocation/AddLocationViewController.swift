@@ -12,10 +12,10 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 
-class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
+class AddLocationViewController: UIViewController, MKMapViewDelegate {
     //MARK: Variable
     var locationManager:CLLocationManager!
-    var locationFound:Bool!
+    var locationFound = false
     
     var currentAnnotation = MKPointAnnotation()
     var currentOverlay = MKCircle()
@@ -33,7 +33,6 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocation
         self.mapView.delegate = self
         self.mapView.showsUserLocation = true
         
-        initLocationManager()
         checkStatePing()
     }
     
@@ -70,6 +69,12 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocation
                         request.responseJSON { (request, response, json, error) in
                             let jsonObject = JSON(json!)
                             let results = jsonObject["results"]
+                            var places = [Place]()
+                            
+                            println(request)
+                            println(response)
+                            println(json)
+                            println(error)
                             
                             for (key: String, jsonValue: JSON) in results {
                                 if let namePlace = jsonValue["name"].string {
@@ -84,17 +89,21 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocation
                                         
                                         place.placeId = idPlace!
                                         place.cat = typePlace!
-                                        place.locations.setByAddingObject(location)
                                         place.longitude = longitude!
                                         place.latitude = latitude!
                                         
+                                        places.append(place)
                                         place.managedObjectContext?.save(nil)
-                                        location.managedObjectContext?.save(nil)
-                                        
-                                        println("Add place \(place.name)")
                                     }
                                 }
                             }
+                            
+                            
+                            location.places = NSMutableSet(array: places)
+                            println("Location place : \(location.places.count)")
+                            location.managedObjectContext?.save(nil)
+                            
+                            
                             self.navigationController?.popViewControllerAnimated(true)
                         }
                     }
@@ -178,13 +187,17 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocation
     }
     
     func mapView(mapView: MKMapView!, didUpdateUserLocation userLocation: MKUserLocation!) {
-        var location = userLocation.location.coordinate
-        
-        let span = MKCoordinateSpanMake(0.1, 0.1)
-        let region = MKCoordinateRegion(center: location, span: span)
-        mapView.setRegion(region, animated: true)
-        
-        self.mapView.centerCoordinate = location
+        if !locationFound {
+            println("Resize")
+            locationFound = true
+            var location = userLocation.location.coordinate
+            
+            let span = MKCoordinateSpanMake(0.1, 0.1)
+            let region = MKCoordinateRegion(center: location, span: span)
+            mapView.setRegion(region, animated: true)
+            
+            self.mapView.centerCoordinate = location
+        }
     }
     
     func mapView(mapView: MKMapView!, didFailToLocateUserWithError error: NSError!) {
@@ -204,47 +217,6 @@ class AddLocationViewController: UIViewController, MKMapViewDelegate, CLLocation
             mapView.addOverlay(currentOverlay)
             
             labelRayon.text = "Search radius : \(Int(value))m"
-        }
-    }
-    
-    //MARK: CLLocationManager
-    
-    func initLocationManager() {
-        locationFound = false;
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        locationManager.startUpdatingLocation()
-    }
-    
-    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        var locationStatus = ""
-        
-        switch status {
-        case CLAuthorizationStatus.Restricted:
-            locationStatus = "Restricted Access to location"
-        case CLAuthorizationStatus.Denied:
-            locationStatus = "User denied access to location"
-        case CLAuthorizationStatus.NotDetermined:
-            locationStatus = "Status not determined"
-        default:
-            locationStatus = "Allowed to location Access"
-        }
-        
-        println("\(locationStatus)")
-    }
-    
-    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-        if !locationFound {
-            locationFound = true
-            var locationArray = locations as NSArray
-            var locationObj = locationArray.lastObject as CLLocation
-            var location = locationObj.coordinate
-            
-            let span = MKCoordinateSpanMake(0.1, 0.1)
-            let region = MKCoordinateRegion(center: location, span: span)
-            mapView.setRegion(region, animated: true)
         }
     }
 }

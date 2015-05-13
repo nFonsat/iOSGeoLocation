@@ -31,8 +31,6 @@ class LocationManager {
         return Singleton.instance
     }
     
-    
-    
     func fetchLocation(predicate : NSPredicate) -> Location? {
         
         if let tasks = fetchLocations(predicate, sortDescriptors: nil) {

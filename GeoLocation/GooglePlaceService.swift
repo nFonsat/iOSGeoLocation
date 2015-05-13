@@ -11,14 +11,31 @@ import Alamofire
 import CoreLocation
 
 class GooglePlaceService {
-    private let baseAPI = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+    //MARK: Variable
+    private let baseAPI = "https://maps.googleapis.com/maps/api/place"
     private let key = "AIzaSyDrTvMEsK4qBvfwFbUAXuhfG5cH522Z0x4"
     
-    private let parameterKey = "key"
-    private let parameterLoc = "location"
-    private let parameterRadius = "radius"
-    private let parameterType = "types"
     
+    private let searchMode  = "/nearbysearch"
+    private let detailsMode = "/details"
+    private let photoMode   = "/photo"
+    
+    
+    private let jsonMode    = "/json"
+    private let xmlMode     = "/xml"
+    
+    
+    private let parameterKey        = "key"
+    private let parameterLoc        = "location"
+    private let parameterRadius     = "radius"
+    private let parameterType       = "types"
+    
+    private let parameterPhotoRef   = "photoreference"
+    private let parameterMaxWidth   = "maxwidth"
+    
+    private let parameterPlaceID    = "placeid"
+    
+    //MARK: Singleton
     class var SharedManager: GooglePlaceService {
         struct Singleton {
             static var instance = GooglePlaceService()
@@ -27,10 +44,12 @@ class GooglePlaceService {
         return Singleton.instance
     }
     
+    //MARK: Action
     func searchInfoLocation(location: CLLocation, radius: CLLocationDistance) -> Request {
         var parameters = [String:String]()
         
         let position = location.coordinate
+        let url = self.baseAPI + self.searchMode + self.jsonMode
         
         parameters[parameterKey] = key
         parameters[parameterLoc] = "\(position.latitude),\(position.longitude)"
@@ -38,7 +57,37 @@ class GooglePlaceService {
         parameters[parameterType] = "bar|restaurant|museum|park"
         
         
-        var request = Alamofire.request(.GET, self.baseAPI, parameters: parameters)
+        var request = Alamofire.request(.GET, url, parameters: parameters)
+        
+        return request
+    }
+    
+    func getDetailPlace(placeID: String) -> Request {
+        var parameters = [String:String]()
+        
+        let url = self.baseAPI + self.detailsMode + self.jsonMode
+        
+        parameters[parameterKey] = key
+        parameters[parameterPlaceID] = placeID
+        
+        
+        var request = Alamofire.request(.GET, url, parameters: parameters)
+        
+        return request
+    }
+    
+    func getPicture(photoRef: String, maxWidth:Int) -> Request {
+        var parameters = [String:String]()
+        
+        let url = self.baseAPI + self.photoMode
+        
+        
+        parameters[parameterPhotoRef] = photoRef
+        parameters[parameterMaxWidth] = String(maxWidth)
+        parameters[parameterKey] = key
+        
+        
+        var request = Alamofire.request(.GET, url, parameters: parameters)
         
         return request
     }

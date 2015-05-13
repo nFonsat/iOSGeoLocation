@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		44284265764CBF5D129572DC /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617FCB8548EC5ACFA41CB85B /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		B82844691B00F28C00108AE8 /* PlaceMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82844681B00F28C00108AE8 /* PlaceMapViewController.swift */; };
+		B85BD5DA1B034B6400494BDA /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BD5D91B034B6400494BDA /* FloatRatingView.swift */; };
 		B86D4E381AD6664D006EB242 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D4E371AD6664D006EB242 /* AppDelegate.swift */; };
 		B86D4E3D1AD6664D006EB242 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B86D4E3B1AD6664D006EB242 /* Main.storyboard */; };
 		B86D4E3F1AD6664D006EB242 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B86D4E3E1AD6664D006EB242 /* Images.xcassets */; };
@@ -23,6 +25,8 @@
 		B895D34A1AD6972500CD09F9 /* GooglePlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B895D3491AD6972500CD09F9 /* GooglePlaceService.swift */; };
 		B895D34C1AD69D4100CD09F9 /* PlaceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B895D34B1AD69D4100CD09F9 /* PlaceTableViewController.swift */; };
 		B895D34E1AD6AB3600CD09F9 /* PlaceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B895D34D1AD6AB3600CD09F9 /* PlaceManager.swift */; };
+		B8C41D501B01E4C4009FD016 /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C41D4F1B01E4C4009FD016 /* PlaceAnnotation.swift */; };
+		B8C41D521B021EFA009FD016 /* PlaceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C41D511B021EFA009FD016 /* PlaceDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +43,8 @@
 		30F3A7E3663EAE3FD494B80B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		617FCB8548EC5ACFA41CB85B /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A47804A40CB3C2EAAC06D04B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		B82844681B00F28C00108AE8 /* PlaceMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceMapViewController.swift; sourceTree = "<group>"; };
+		B85BD5D91B034B6400494BDA /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
 		B86D4E321AD6664D006EB242 /* GeoLocation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoLocation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86D4E361AD6664D006EB242 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B86D4E371AD6664D006EB242 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +64,8 @@
 		B895D3491AD6972500CD09F9 /* GooglePlaceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlaceService.swift; sourceTree = "<group>"; };
 		B895D34B1AD69D4100CD09F9 /* PlaceTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTableViewController.swift; sourceTree = "<group>"; };
 		B895D34D1AD6AB3600CD09F9 /* PlaceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceManager.swift; sourceTree = "<group>"; };
+		B8C41D4F1B01E4C4009FD016 /* PlaceAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
+		B8C41D511B021EFA009FD016 /* PlaceDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +109,7 @@
 			children = (
 				B86D4E5A1AD66767006EB242 /* Place.swift */,
 				B86D4E661AD66DDB006EB242 /* Location.swift */,
+				B8C41D4F1B01E4C4009FD016 /* PlaceAnnotation.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -108,9 +117,12 @@
 		B841C2041AFB871A00F9F9E0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B85BD5D91B034B6400494BDA /* FloatRatingView.swift */,
 				B86D4E5E1AD6686A006EB242 /* LocationTableViewController.swift */,
 				B86D4E601AD66A03006EB242 /* AddLocationViewController.swift */,
 				B895D34B1AD69D4100CD09F9 /* PlaceTableViewController.swift */,
+				B82844681B00F28C00108AE8 /* PlaceMapViewController.swift */,
+				B8C41D511B021EFA009FD016 /* PlaceDetailViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -341,10 +353,14 @@
 				B86D4E591AD666A1006EB242 /* GeoLocation.xcdatamodeld in Sources */,
 				B895D34A1AD6972500CD09F9 /* GooglePlaceService.swift in Sources */,
 				B86D4E5F1AD6686A006EB242 /* LocationTableViewController.swift in Sources */,
+				B85BD5DA1B034B6400494BDA /* FloatRatingView.swift in Sources */,
 				B86D4E671AD66DDB006EB242 /* Location.swift in Sources */,
+				B8C41D501B01E4C4009FD016 /* PlaceAnnotation.swift in Sources */,
 				B86D4E611AD66A03006EB242 /* AddLocationViewController.swift in Sources */,
+				B82844691B00F28C00108AE8 /* PlaceMapViewController.swift in Sources */,
 				B86D4E651AD66CEC006EB242 /* LocationManager.swift in Sources */,
 				B86D4E381AD6664D006EB242 /* AppDelegate.swift in Sources */,
+				B8C41D521B021EFA009FD016 /* PlaceDetailViewController.swift in Sources */,
 				B895D34C1AD69D4100CD09F9 /* PlaceTableViewController.swift in Sources */,
 				B895D34E1AD6AB3600CD09F9 /* PlaceManager.swift in Sources */,
 				B86D4E631AD66C8C006EB242 /* CoreDataManager.swift in Sources */,

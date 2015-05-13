@@ -16,6 +16,5 @@ class Place: NSManagedObject {
     @NSManaged var placeId: String
     @NSManaged var longitude: NSNumber
     @NSManaged var latitude: NSNumber
-    @NSManaged var locations: NSSet
-
+    @NSManaged var note: NSNumber
 }
